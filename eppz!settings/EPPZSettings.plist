@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EPPZSettings.name</key>
+	<string>eppz!</string>
+	<key>EPPZSettings.sound</key>
+	<true/>
+	<key>EPPZSettings.volume</key>
+	<real>0.5</real>
+	<key>EPPZSettings.pushNotifications</key>
+	<true/>
+	<key>EPPZSettings.iCloud</key>
+	<false/>
+</dict>
+</plist>

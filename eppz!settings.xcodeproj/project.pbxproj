@@ -19,6 +19,11 @@
 		AE05A383178E1122002C0D84 /* EPPZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A382178E1122002C0D84 /* EPPZViewController.m */; };
 		AE05A386178E1122002C0D84 /* EPPZViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE05A384178E1122002C0D84 /* EPPZViewController_iPhone.xib */; };
 		AE05A389178E1122002C0D84 /* EPPZViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE05A387178E1122002C0D84 /* EPPZViewController_iPad.xib */; };
+		AE05A391178E113C002C0D84 /* EPPZUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */; };
+		AE05A396178E11AB002C0D84 /* EPPZSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A395178E11AB002C0D84 /* EPPZSettings.m */; };
+		AE05A399178E12C4002C0D84 /* EPPZTapCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */; };
+		AE05A39B178E138E002C0D84 /* EPPZSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE05A39A178E138E002C0D84 /* EPPZSettings.plist */; };
+		AE05A3A2178E224A002C0D84 /* NSObject+EPPZKeyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,15 @@
 		AE05A382178E1122002C0D84 /* EPPZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPZViewController.m; sourceTree = "<group>"; };
 		AE05A385178E1122002C0D84 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EPPZViewController_iPhone.xib; sourceTree = "<group>"; };
 		AE05A388178E1122002C0D84 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EPPZViewController_iPad.xib; sourceTree = "<group>"; };
+		AE05A38F178E113C002C0D84 /* EPPZUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZUserDefaults.h; sourceTree = "<group>"; };
+		AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZUserDefaults.m; sourceTree = "<group>"; };
+		AE05A394178E11AB002C0D84 /* EPPZSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZSettings.h; sourceTree = "<group>"; };
+		AE05A395178E11AB002C0D84 /* EPPZSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZSettings.m; sourceTree = "<group>"; };
+		AE05A397178E12C4002C0D84 /* EPPZTapCounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZTapCounts.h; sourceTree = "<group>"; };
+		AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZTapCounts.m; sourceTree = "<group>"; };
+		AE05A39A178E138E002C0D84 /* EPPZSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EPPZSettings.plist; sourceTree = "<group>"; };
+		AE05A3A0178E224A002C0D84 /* NSObject+EPPZKeyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+EPPZKeyMap.h"; sourceTree = "<group>"; };
+		AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EPPZKeyMap.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +99,15 @@
 		AE05A36F178E1122002C0D84 /* eppz!settings */ = {
 			isa = PBXGroup;
 			children = (
+				AE05A392178E118B002C0D84 /* User defaults */,
+				AE05A393178E1194002C0D84 /* Settings */,
+				AE05A39C178E13EB002C0D84 /* Tap counts */,
 				AE05A378178E1122002C0D84 /* EPPZAppDelegate.h */,
 				AE05A379178E1122002C0D84 /* EPPZAppDelegate.m */,
 				AE05A381178E1122002C0D84 /* EPPZViewController.h */,
 				AE05A382178E1122002C0D84 /* EPPZViewController.m */,
+				AE05A3A0178E224A002C0D84 /* NSObject+EPPZKeyMap.h */,
+				AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */,
 				AE05A384178E1122002C0D84 /* EPPZViewController_iPhone.xib */,
 				AE05A387178E1122002C0D84 /* EPPZViewController_iPad.xib */,
 				AE05A370178E1122002C0D84 /* Supporting Files */,
@@ -108,6 +127,34 @@
 				AE05A37F178E1122002C0D84 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE05A392178E118B002C0D84 /* User defaults */ = {
+			isa = PBXGroup;
+			children = (
+				AE05A38F178E113C002C0D84 /* EPPZUserDefaults.h */,
+				AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */,
+			);
+			name = "User defaults";
+			sourceTree = "<group>";
+		};
+		AE05A393178E1194002C0D84 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AE05A394178E11AB002C0D84 /* EPPZSettings.h */,
+				AE05A395178E11AB002C0D84 /* EPPZSettings.m */,
+				AE05A39A178E138E002C0D84 /* EPPZSettings.plist */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		AE05A39C178E13EB002C0D84 /* Tap counts */ = {
+			isa = PBXGroup;
+			children = (
+				AE05A397178E12C4002C0D84 /* EPPZTapCounts.h */,
+				AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */,
+			);
+			name = "Tap counts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +215,7 @@
 				AE05A380178E1122002C0D84 /* Default-568h@2x.png in Resources */,
 				AE05A386178E1122002C0D84 /* EPPZViewController_iPhone.xib in Resources */,
 				AE05A389178E1122002C0D84 /* EPPZViewController_iPad.xib in Resources */,
+				AE05A39B178E138E002C0D84 /* EPPZSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +229,10 @@
 				AE05A376178E1122002C0D84 /* main.m in Sources */,
 				AE05A37A178E1122002C0D84 /* EPPZAppDelegate.m in Sources */,
 				AE05A383178E1122002C0D84 /* EPPZViewController.m in Sources */,
+				AE05A391178E113C002C0D84 /* EPPZUserDefaults.m in Sources */,
+				AE05A396178E11AB002C0D84 /* EPPZSettings.m in Sources */,
+				AE05A399178E12C4002C0D84 /* EPPZTapCounts.m in Sources */,
+				AE05A3A2178E224A002C0D84 /* NSObject+EPPZKeyMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
