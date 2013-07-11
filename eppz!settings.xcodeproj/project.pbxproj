@@ -17,13 +17,18 @@
 		AE05A37E178E1122002C0D84 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A37D178E1122002C0D84 /* Default@2x.png */; };
 		AE05A380178E1122002C0D84 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A37F178E1122002C0D84 /* Default-568h@2x.png */; };
 		AE05A383178E1122002C0D84 /* EPPZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A382178E1122002C0D84 /* EPPZViewController.m */; };
-		AE05A386178E1122002C0D84 /* EPPZViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE05A384178E1122002C0D84 /* EPPZViewController_iPhone.xib */; };
-		AE05A389178E1122002C0D84 /* EPPZViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE05A387178E1122002C0D84 /* EPPZViewController_iPad.xib */; };
+		AE05A386178E1122002C0D84 /* EPPZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE05A384178E1122002C0D84 /* EPPZViewController.xib */; };
 		AE05A391178E113C002C0D84 /* EPPZUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */; };
 		AE05A396178E11AB002C0D84 /* EPPZSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A395178E11AB002C0D84 /* EPPZSettings.m */; };
 		AE05A399178E12C4002C0D84 /* EPPZTapCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */; };
 		AE05A39B178E138E002C0D84 /* EPPZSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE05A39A178E138E002C0D84 /* EPPZSettings.plist */; };
 		AE05A3A2178E224A002C0D84 /* NSObject+EPPZKeyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */; };
+		AE05A3A7178E482E002C0D84 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3A3178E482E002C0D84 /* icon-72.png */; };
+		AE05A3A8178E482E002C0D84 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3A4178E482E002C0D84 /* icon-72@2x.png */; };
+		AE05A3A9178E482E002C0D84 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3A5178E482E002C0D84 /* icon.png */; };
+		AE05A3AA178E482E002C0D84 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3A6178E482E002C0D84 /* icon@2x.png */; };
+		AE05A3AC178E483F002C0D84 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3AB178E483F002C0D84 /* README.md */; };
+		AE05A3B1178E5228002C0D84 /* EPPZFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A3B0178E5228002C0D84 /* EPPZFlatButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +47,7 @@
 		AE05A37F178E1122002C0D84 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AE05A381178E1122002C0D84 /* EPPZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPZViewController.h; sourceTree = "<group>"; };
 		AE05A382178E1122002C0D84 /* EPPZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPZViewController.m; sourceTree = "<group>"; };
-		AE05A385178E1122002C0D84 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EPPZViewController_iPhone.xib; sourceTree = "<group>"; };
-		AE05A388178E1122002C0D84 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EPPZViewController_iPad.xib; sourceTree = "<group>"; };
+		AE05A385178E1122002C0D84 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EPPZViewController.xib; sourceTree = "<group>"; };
 		AE05A38F178E113C002C0D84 /* EPPZUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZUserDefaults.h; sourceTree = "<group>"; };
 		AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZUserDefaults.m; sourceTree = "<group>"; };
 		AE05A394178E11AB002C0D84 /* EPPZSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZSettings.h; sourceTree = "<group>"; };
@@ -53,6 +57,13 @@
 		AE05A39A178E138E002C0D84 /* EPPZSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EPPZSettings.plist; sourceTree = "<group>"; };
 		AE05A3A0178E224A002C0D84 /* NSObject+EPPZKeyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+EPPZKeyMap.h"; sourceTree = "<group>"; };
 		AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EPPZKeyMap.m"; sourceTree = "<group>"; };
+		AE05A3A3178E482E002C0D84 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
+		AE05A3A4178E482E002C0D84 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
+		AE05A3A5178E482E002C0D84 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AE05A3A6178E482E002C0D84 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		AE05A3AB178E483F002C0D84 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		AE05A3AF178E5228002C0D84 /* EPPZFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZFlatButton.h; sourceTree = "<group>"; };
+		AE05A3B0178E5228002C0D84 /* EPPZFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZFlatButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,17 +110,12 @@
 		AE05A36F178E1122002C0D84 /* eppz!settings */ = {
 			isa = PBXGroup;
 			children = (
+				AE05A378178E1122002C0D84 /* EPPZAppDelegate.h */,
+				AE05A379178E1122002C0D84 /* EPPZAppDelegate.m */,
 				AE05A392178E118B002C0D84 /* User defaults */,
 				AE05A393178E1194002C0D84 /* Settings */,
 				AE05A39C178E13EB002C0D84 /* Tap counts */,
-				AE05A378178E1122002C0D84 /* EPPZAppDelegate.h */,
-				AE05A379178E1122002C0D84 /* EPPZAppDelegate.m */,
-				AE05A381178E1122002C0D84 /* EPPZViewController.h */,
-				AE05A382178E1122002C0D84 /* EPPZViewController.m */,
-				AE05A3A0178E224A002C0D84 /* NSObject+EPPZKeyMap.h */,
-				AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */,
-				AE05A384178E1122002C0D84 /* EPPZViewController_iPhone.xib */,
-				AE05A387178E1122002C0D84 /* EPPZViewController_iPad.xib */,
+				AE05A3AD178E4A8A002C0D84 /* Views */,
 				AE05A370178E1122002C0D84 /* Supporting Files */,
 			);
 			path = "eppz!settings";
@@ -118,6 +124,11 @@
 		AE05A370178E1122002C0D84 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE05A3AB178E483F002C0D84 /* README.md */,
+				AE05A3A3178E482E002C0D84 /* icon-72.png */,
+				AE05A3A4178E482E002C0D84 /* icon-72@2x.png */,
+				AE05A3A5178E482E002C0D84 /* icon.png */,
+				AE05A3A6178E482E002C0D84 /* icon@2x.png */,
 				AE05A371178E1122002C0D84 /* eppz!settings-Info.plist */,
 				AE05A372178E1122002C0D84 /* InfoPlist.strings */,
 				AE05A375178E1122002C0D84 /* main.m */,
@@ -155,6 +166,36 @@
 				AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */,
 			);
 			name = "Tap counts";
+			sourceTree = "<group>";
+		};
+		AE05A3AD178E4A8A002C0D84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE05A3B2178E522B002C0D84 /* Flat button */,
+				AE05A3AE178E4A91002C0D84 /* Key mapping */,
+				AE05A381178E1122002C0D84 /* EPPZViewController.h */,
+				AE05A382178E1122002C0D84 /* EPPZViewController.m */,
+				AE05A384178E1122002C0D84 /* EPPZViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AE05A3AE178E4A91002C0D84 /* Key mapping */ = {
+			isa = PBXGroup;
+			children = (
+				AE05A3A0178E224A002C0D84 /* NSObject+EPPZKeyMap.h */,
+				AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */,
+			);
+			name = "Key mapping";
+			sourceTree = "<group>";
+		};
+		AE05A3B2178E522B002C0D84 /* Flat button */ = {
+			isa = PBXGroup;
+			children = (
+				AE05A3AF178E5228002C0D84 /* EPPZFlatButton.h */,
+				AE05A3B0178E5228002C0D84 /* EPPZFlatButton.m */,
+			);
+			name = "Flat button";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +254,13 @@
 				AE05A37C178E1122002C0D84 /* Default.png in Resources */,
 				AE05A37E178E1122002C0D84 /* Default@2x.png in Resources */,
 				AE05A380178E1122002C0D84 /* Default-568h@2x.png in Resources */,
-				AE05A386178E1122002C0D84 /* EPPZViewController_iPhone.xib in Resources */,
-				AE05A389178E1122002C0D84 /* EPPZViewController_iPad.xib in Resources */,
+				AE05A386178E1122002C0D84 /* EPPZViewController.xib in Resources */,
 				AE05A39B178E138E002C0D84 /* EPPZSettings.plist in Resources */,
+				AE05A3A7178E482E002C0D84 /* icon-72.png in Resources */,
+				AE05A3A8178E482E002C0D84 /* icon-72@2x.png in Resources */,
+				AE05A3A9178E482E002C0D84 /* icon.png in Resources */,
+				AE05A3AA178E482E002C0D84 /* icon@2x.png in Resources */,
+				AE05A3AC178E483F002C0D84 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +278,7 @@
 				AE05A396178E11AB002C0D84 /* EPPZSettings.m in Sources */,
 				AE05A399178E12C4002C0D84 /* EPPZTapCounts.m in Sources */,
 				AE05A3A2178E224A002C0D84 /* NSObject+EPPZKeyMap.m in Sources */,
+				AE05A3B1178E5228002C0D84 /* EPPZFlatButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,20 +293,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		AE05A384178E1122002C0D84 /* EPPZViewController_iPhone.xib */ = {
+		AE05A384178E1122002C0D84 /* EPPZViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AE05A385178E1122002C0D84 /* en */,
 			);
-			name = EPPZViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		AE05A387178E1122002C0D84 /* EPPZViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE05A388178E1122002C0D84 /* en */,
-			);
-			name = EPPZViewController_iPad.xib;
+			name = EPPZViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -365,6 +403,7 @@
 				AE05A38E178E1122002C0D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

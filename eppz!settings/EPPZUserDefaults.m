@@ -1,9 +1,13 @@
 //
 //  EPPZUserDefault.m
-//  eppz!box!client
+//  eppz!tools
 //
-//  Created by Gardrobe on 7/10/13.
-//  Copyright (c) 2013 eppz!. All rights reserved.
+//  Created by Borbás Geri on 7/11/13.
+//  Copyright (c) 2013 eppz! development, LLC.
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import "EPPZUserDefaults.h"
@@ -25,12 +29,13 @@
 {
     if (self = [super init])
     {        
-        //Sugar.
+        //Aliasing sugar.
         self.userDefaults = [NSUserDefaults standardUserDefaults];
         
         //Register defaults.
-        NSString *defaultsPlistPath = [[NSBundle mainBundle] pathForResource:self.name ofType:@"plist"];
-        NSDictionary *defaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath];
+        NSString *defaultsPlistPath = [[NSBundle mainBundle] pathForResource:self.className ofType:@"plist"];
+        NSDictionary *defaultProperties = [NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath];
+        NSDictionary *defaults = (defaultProperties != nil) ? @{ self.className : defaultProperties } : nil;
         [self.userDefaults registerDefaults:defaults];
         
         //Populate properties.
@@ -52,16 +57,16 @@
 
 #pragma mark - Archiving
 
-+(NSString*)name { return NSStringFromClass(self); } 
--(NSString*)name { return [self.class name]; }
--(NSString*)prefixedKeyForKey:(NSString*) key { return [NSString stringWithFormat:@"%@.%@", [self.class name], key]; }
++(NSString*)name { return NSStringFromClass(self); }
+-(NSString*)className { return [self.class name]; }
+-(NSString*)prefixedKeyForKey:(NSString*) key { return [NSString stringWithFormat:@"%@.%@", self.className, key]; }
 
 -(void)load
 {
     for (NSString *eachPropertyName in [self.class persistablePropertyNames])
     {
-        //Get value.
-        id value = [self.userDefaults objectForKey:[self prefixedKeyForKey:eachPropertyName]];
+        //Get value (from NSUserDefaults dictionary).
+        id value = [self.userDefaults valueForKeyPath:[self prefixedKeyForKey:eachPropertyName]];
         
         //Set property safely.
         @try { [self setValue:value forKey:eachPropertyName]; }
@@ -70,42 +75,38 @@
     }
 }
 
--(void)save
-{ [self.userDefaults synchronize]; }
+-(void)observeValueForKeyPath:(NSString*) keyPath ofObject:(id)object change:(NSDictionary*) change context:(void*) context
+{
+    //Save to store if asked to (if need to represent at all).
+    id value = [change objectForKey:NSKeyValueChangeNewKey];
+    if (self.saveOnEveryChange)
+        if (value != nil)
+            if ([[self.class persistablePropertyNames] containsObject:keyPath])
+            {
+                //Set value (to NSUserDefaults).
+                NSMutableDictionary *dictionaryRepresentation = [[self.userDefaults objectForKey:self.className] mutableCopy];
+                if (dictionaryRepresentation == nil) dictionaryRepresentation = [NSMutableDictionary new];
+                [dictionaryRepresentation setObject:value forKey:keyPath];
+                [self.userDefaults setObject:dictionaryRepresentation forKey:self.className];
+                
+                //Syncronize.
+                [self.userDefaults synchronize];
+            }
+}
+
+
+#pragma mark - Observe propery changes
 
 -(void)observePersistableProperties
 {
     for (NSString *eachPropertyName in [self.class persistablePropertyNames])
-    {
-        [self addObserver:self
-               forKeyPath:eachPropertyName
-                  options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
-                  context:nil];
-    }
+        [self addObserver:self forKeyPath:eachPropertyName options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
 }
 
 -(void)finishObservingPersistableProperties
 {
     for (NSString *eachPropertyName in [self.class persistablePropertyNames])
-    {
-        [self removeObserver:self
-                  forKeyPath:eachPropertyName];
-    }
-}
-
--(void)observeValueForKeyPath:(NSString*) keyPath ofObject:(id)object change:(NSDictionary*) change context:(void*) context
-{
-    id value = [change objectForKey:NSKeyValueChangeNewKey];
-    NSLog(@"%@ observeValueForKeyPath:%@ value:%@", NSStringFromClass(self.class), keyPath, value);
-    
-    //Save to store as well (if need to represent).
-    if (self.saveOnEveryChange)
-        if (value != nil)
-            if ([[self.class persistablePropertyNames] containsObject:keyPath])
-            {
-                [self.userDefaults setObject:value forKey:[self prefixedKeyForKey:keyPath]];
-                [self save];
-            }
+        [self removeObserver:self forKeyPath:eachPropertyName];
 }
 
 

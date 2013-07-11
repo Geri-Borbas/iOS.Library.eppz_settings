@@ -1,20 +1,21 @@
 //
 //  EPPZViewController.m
-//  eppz!settings
+//  eppz!tools
 //
-//  Created by Gardrobe on 7/11/13.
-//  Copyright (c) 2013 eppz!. All rights reserved.
+//  Created by Borbás Geri on 7/11/13.
+//  Copyright (c) 2013 eppz! development, LLC.
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import "EPPZViewController.h"
 
 @interface EPPZViewController ()
-
 @property (nonatomic, strong) EPPZSettings *settings;
 @property (nonatomic, strong) EPPZTapCounts *tapCounts;
-
-@property (nonatomic, readonly) NSDictionary *keyMap;
-
+@property (nonatomic, readonly) NSDictionary *modelToUIKeyMap;
 @end
 
 
@@ -47,24 +48,23 @@
 
 -(IBAction)tap
 {
-    //Manipulate models (invoking setters).
-    self.tapCounts.lifeTimeTapCount = self.tapCounts.lifeTimeTapCount + 1;
-    self.tapCounts.tapCount = self.tapCounts.tapCount + 1;
+    //Manipulate model.
+    self.tapCounts.lifeTimeTapCount++;
+    self.tapCounts.tapCount++;
     
     [self populateUI];
 }
 
 
-
 #pragma mark - Map model to UI
 
--(NSDictionary*)keyMap
+-(NSDictionary*)modelToUIKeyMap
 {
     return @{
              @"settings.name" : @"nameTextField.text",
              @"settings.sound" : @"soundSwitch.on",
              @"settings.volume" : @"volumeSlider.value",
-             @"settings.pushNotifications" : @"pushNotifications.on",
+             @"settings.messages" : @"messagesSwitch.on",
              @"settings.iCloud" : @"iCloudSwitch.on",
              @"tapCounts.lifeTimeTapCount" : @"lifeTimeTapCountTextField.text",
              @"tapCounts.tapCount" : @"tapCountTextField.text"
@@ -72,10 +72,10 @@
 }
 
 -(void)populateUI
-{ [self applyKeyMap:self.keyMap]; }
+{ [self applyKeyMap:self.modelToUIKeyMap]; }
 
 -(void)populateModel
-{ [self applyKeyMapToLeft:self.keyMap]; }
+{ [self applyKeyMapToLeft:self.modelToUIKeyMap]; }
 
 
 @end

@@ -2,15 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>EPPZSettings.name</key>
+	<key>name</key>
 	<string>eppz!</string>
-	<key>EPPZSettings.sound</key>
+	<key>sound</key>
 	<true/>
-	<key>EPPZSettings.volume</key>
+	<key>volume</key>
 	<real>0.5</real>
-	<key>EPPZSettings.pushNotifications</key>
+	<key>messages</key>
 	<true/>
-	<key>EPPZSettings.iCloud</key>
+	<key>iCloud</key>
 	<false/>
 </dict>
 </plist>
