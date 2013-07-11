@@ -31,3 +31,5 @@ Just as you would do instinctively, use NSUserDefaults acceptable data types onl
 
 #### License
 > Licensed under the [Open Source MIT license](http://en.wikipedia.org/wiki/MIT_License).
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/0bc3cb553edfb0077e022a7bc524332b "githalytics.com")](http://githalytics.com/eppz/eppz-settings)
