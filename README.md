@@ -1,5 +1,5 @@
 ## ![eppz!tools](http://www.eppz.eu/beacons/eppz!.png) eppz!settings
-Drop-in NSUserDefaults settings manager for everyday use. You can read in more detail at (Save to NSUserDefaults | Advanced yet simple store of objects)[http://eppz.eu/blog/save-to-nsuserdefaults/].
+Drop-in NSUserDefaults settings manager for everyday use. You can read in more detail at [Save to NSUserDefaults | Advanced yet simple store of objects](http://eppz.eu/blog/save-to-nsuserdefaults/).
 
 ### A real time saver
 Just create an object with settings, and done.
