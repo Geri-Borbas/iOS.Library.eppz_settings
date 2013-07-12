@@ -29,7 +29,7 @@ You can define a subset of properties you want to persist implementing `persista
 
 ### Limitations
 
-Just as you would do instinctively, use NSUserDefaults acceptable data types only. Check third paragraph in [`NSUSerDefaults`](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/Reference/Reference.html) documentation.
+Just as you would do instinctively, use `NSUserDefaults` acceptable data types only. Check third paragraph in [`NSUSerDefaults`](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/Reference/Reference.html) documentation.
 
 #### License
 > Licensed under the [Open Source MIT license](http://en.wikipedia.org/wiki/MIT_License).
