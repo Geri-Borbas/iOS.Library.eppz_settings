@@ -3,7 +3,6 @@ Drop-in NSUserDefaults settings manager for everyday use. You can read in more d
 
 ___
 **Donate eppz!settings** by <a href="https://twitter.com/intent/tweet?url=https://github.com/eppz/eppz-reachability&text=A%20Drop-in%20NSUserDefaults%20settings%20manager%20for%20everyday%20use%20via%20@_eppz&hashtags=eppz,tools,iosdev"><img src="http://www.eppz.eu/beacons/eppz!_tweet.png" align="absmiddle"></a> this or follow <a href="https://twitter.com/intent/user?original_referer=https%3A%2F%2Ftwitter.com%2Fabout%2Fresources%2Fbuttons&region=following&screen_name=_eppz&tw_p=followbutton&variant=2.0"><img src="http://www.eppz.eu/beacons/eppz!_follow.png" align="absmiddle"></a>
-___
 
 ### A real time saver
 Just create an object with settings, and done.
