@@ -33,7 +33,8 @@ Just as you would do instinctively, use `NSUserDefaults` acceptable data types o
 
 #### License
 
-> Donate us by [Tweet](https://twitter.com/intent/tweet?url=https://github.com/eppz/eppz-settings&text=A%20Drop-in%20NSUserDefaults%20settings%20manager%20for%20everyday%20use%20via%20@_eppz&hashtags=eppz,tools,iosdev) or Follow.
+> Donate us by a [![Tweet](http://www.eppz.eu/beacons/eppz!_tweet.png)](https://twitter.com/intent/tweet?url=https://github.com/eppz/eppz-settings&text=A%20Drop-in%20NSUserDefaults%20settings%20manager%20for%20everyday%20use%20via%20@_eppz&hashtags=eppz,tools,iosdev) or [![Follow @_eppz](http://www.eppz.eu/beacons/eppz!_follow.png)](https://twitter.com/intent/user?original_referer=https%3A%2F%2Ftwitter.com%2Fabout%2Fresources%2Fbuttons&region=following&screen_name=_eppz&tw_p=followbutton&variant=2.0).
+
 > Licensed under the [Open Source MIT license](http://en.wikipedia.org/wiki/MIT_License).
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/0bc3cb553edfb0077e022a7bc524332b "githalytics.com")](http://githalytics.com/eppz/eppz-settings)
