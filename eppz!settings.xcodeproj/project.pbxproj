@@ -18,9 +18,8 @@
 		AE05A380178E1122002C0D84 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A37F178E1122002C0D84 /* Default-568h@2x.png */; };
 		AE05A383178E1122002C0D84 /* EPPZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A382178E1122002C0D84 /* EPPZViewController.m */; };
 		AE05A386178E1122002C0D84 /* EPPZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE05A384178E1122002C0D84 /* EPPZViewController.xib */; };
-		AE05A391178E113C002C0D84 /* EPPZUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */; };
+		AE05A391178E113C002C0D84 /* EPPZUserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A390178E113C002C0D84 /* EPPZUserSettings.m */; };
 		AE05A396178E11AB002C0D84 /* EPPZSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A395178E11AB002C0D84 /* EPPZSettings.m */; };
-		AE05A399178E12C4002C0D84 /* EPPZTapCounts.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */; };
 		AE05A39B178E138E002C0D84 /* EPPZSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE05A39A178E138E002C0D84 /* EPPZSettings.plist */; };
 		AE05A3A2178E224A002C0D84 /* NSObject+EPPZKeyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */; };
 		AE05A3A7178E482E002C0D84 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3A3178E482E002C0D84 /* icon-72.png */; };
@@ -28,8 +27,24 @@
 		AE05A3A9178E482E002C0D84 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3A5178E482E002C0D84 /* icon.png */; };
 		AE05A3AA178E482E002C0D84 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3A6178E482E002C0D84 /* icon@2x.png */; };
 		AE05A3AC178E483F002C0D84 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE05A3AB178E483F002C0D84 /* README.md */; };
-		AE05A3B1178E5228002C0D84 /* EPPZFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05A3B0178E5228002C0D84 /* EPPZFlatButton.m */; };
+		FA36A0ED1B1157740099ADC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA36A0EC1B1157740099ADC2 /* main.m */; };
+		FA36A0F01B1157750099ADC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA36A0EF1B1157750099ADC2 /* AppDelegate.m */; };
+		FA36A0F31B1157750099ADC2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA36A0F21B1157750099ADC2 /* ViewController.m */; };
+		FA36A0F61B1157750099ADC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA36A0F41B1157750099ADC2 /* Main.storyboard */; };
+		FA36A0F81B1157750099ADC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA36A0F71B1157750099ADC2 /* Images.xcassets */; };
+		FA36A0FB1B1157750099ADC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA36A0F91B1157750099ADC2 /* LaunchScreen.xib */; };
+		FA36A1071B1157760099ADC2 /* eppz_secondaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA36A1061B1157760099ADC2 /* eppz_secondaryTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA36A1011B1157750099ADC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE05A35E178E1122002C0D84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA36A0E71B1157740099ADC2;
+			remoteInfo = "eppz!secondary";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AE05A366178E1122002C0D84 /* eppz!settings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eppz!settings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,12 +63,10 @@
 		AE05A381178E1122002C0D84 /* EPPZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPPZViewController.h; sourceTree = "<group>"; };
 		AE05A382178E1122002C0D84 /* EPPZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPPZViewController.m; sourceTree = "<group>"; };
 		AE05A385178E1122002C0D84 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EPPZViewController.xib; sourceTree = "<group>"; };
-		AE05A38F178E113C002C0D84 /* EPPZUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZUserDefaults.h; sourceTree = "<group>"; };
-		AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZUserDefaults.m; sourceTree = "<group>"; };
+		AE05A38F178E113C002C0D84 /* EPPZUserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZUserSettings.h; sourceTree = "<group>"; };
+		AE05A390178E113C002C0D84 /* EPPZUserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZUserSettings.m; sourceTree = "<group>"; };
 		AE05A394178E11AB002C0D84 /* EPPZSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZSettings.h; sourceTree = "<group>"; };
 		AE05A395178E11AB002C0D84 /* EPPZSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZSettings.m; sourceTree = "<group>"; };
-		AE05A397178E12C4002C0D84 /* EPPZTapCounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZTapCounts.h; sourceTree = "<group>"; };
-		AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZTapCounts.m; sourceTree = "<group>"; };
 		AE05A39A178E138E002C0D84 /* EPPZSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EPPZSettings.plist; sourceTree = "<group>"; };
 		AE05A3A0178E224A002C0D84 /* NSObject+EPPZKeyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+EPPZKeyMap.h"; sourceTree = "<group>"; };
 		AE05A3A1178E224A002C0D84 /* NSObject+EPPZKeyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EPPZKeyMap.m"; sourceTree = "<group>"; };
@@ -62,8 +75,22 @@
 		AE05A3A5178E482E002C0D84 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		AE05A3A6178E482E002C0D84 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		AE05A3AB178E483F002C0D84 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
-		AE05A3AF178E5228002C0D84 /* EPPZFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPPZFlatButton.h; sourceTree = "<group>"; };
-		AE05A3B0178E5228002C0D84 /* EPPZFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPPZFlatButton.m; sourceTree = "<group>"; };
+		FA36A0E81B1157740099ADC2 /* eppz!secondary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eppz!secondary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA36A0EB1B1157740099ADC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA36A0EC1B1157740099ADC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA36A0EE1B1157740099ADC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA36A0EF1B1157750099ADC2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA36A0F11B1157750099ADC2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA36A0F21B1157750099ADC2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA36A0F51B1157750099ADC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA36A0F71B1157750099ADC2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FA36A0FA1B1157750099ADC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FA36A1001B1157750099ADC2 /* eppz!secondaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "eppz!secondaryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA36A1051B1157760099ADC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA36A1061B1157760099ADC2 /* eppz_secondaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = eppz_secondaryTests.m; sourceTree = "<group>"; };
+		FA36A10E1B1158290099ADC2 /* eppz!secondary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "eppz!secondary.entitlements"; sourceTree = "<group>"; };
+		FA4BB1241B114AEC0048224A /* eppz!settings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "eppz!settings.entitlements"; sourceTree = "<group>"; };
+		FA9196901B128DFA00E9041C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,13 +104,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA36A0E51B1157740099ADC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA36A0FD1B1157750099ADC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		AE05A35D178E1122002C0D84 = {
 			isa = PBXGroup;
 			children = (
+				FA9196901B128DFA00E9041C /* README.md */,
 				AE05A36F178E1122002C0D84 /* eppz!settings */,
+				FA36A0E91B1157740099ADC2 /* eppz!secondary */,
+				FA36A1031B1157760099ADC2 /* eppz!secondaryTests */,
 				AE05A368178E1122002C0D84 /* Frameworks */,
 				AE05A367178E1122002C0D84 /* Products */,
 			);
@@ -93,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				AE05A366178E1122002C0D84 /* eppz!settings.app */,
+				FA36A0E81B1157740099ADC2 /* eppz!secondary.app */,
+				FA36A1001B1157750099ADC2 /* eppz!secondaryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,11 +156,11 @@
 		AE05A36F178E1122002C0D84 /* eppz!settings */ = {
 			isa = PBXGroup;
 			children = (
+				FA4BB1241B114AEC0048224A /* eppz!settings.entitlements */,
 				AE05A378178E1122002C0D84 /* EPPZAppDelegate.h */,
 				AE05A379178E1122002C0D84 /* EPPZAppDelegate.m */,
 				AE05A392178E118B002C0D84 /* User defaults */,
 				AE05A393178E1194002C0D84 /* Settings */,
-				AE05A39C178E13EB002C0D84 /* Tap counts */,
 				AE05A3AD178E4A8A002C0D84 /* Views */,
 				AE05A370178E1122002C0D84 /* Supporting Files */,
 			);
@@ -143,8 +189,8 @@
 		AE05A392178E118B002C0D84 /* User defaults */ = {
 			isa = PBXGroup;
 			children = (
-				AE05A38F178E113C002C0D84 /* EPPZUserDefaults.h */,
-				AE05A390178E113C002C0D84 /* EPPZUserDefaults.m */,
+				AE05A38F178E113C002C0D84 /* EPPZUserSettings.h */,
+				AE05A390178E113C002C0D84 /* EPPZUserSettings.m */,
 			);
 			name = "User defaults";
 			sourceTree = "<group>";
@@ -159,19 +205,9 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		AE05A39C178E13EB002C0D84 /* Tap counts */ = {
-			isa = PBXGroup;
-			children = (
-				AE05A397178E12C4002C0D84 /* EPPZTapCounts.h */,
-				AE05A398178E12C4002C0D84 /* EPPZTapCounts.m */,
-			);
-			name = "Tap counts";
-			sourceTree = "<group>";
-		};
 		AE05A3AD178E4A8A002C0D84 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AE05A3B2178E522B002C0D84 /* Flat button */,
 				AE05A3AE178E4A91002C0D84 /* Key mapping */,
 				AE05A381178E1122002C0D84 /* EPPZViewController.h */,
 				AE05A382178E1122002C0D84 /* EPPZViewController.m */,
@@ -189,13 +225,46 @@
 			name = "Key mapping";
 			sourceTree = "<group>";
 		};
-		AE05A3B2178E522B002C0D84 /* Flat button */ = {
+		FA36A0E91B1157740099ADC2 /* eppz!secondary */ = {
 			isa = PBXGroup;
 			children = (
-				AE05A3AF178E5228002C0D84 /* EPPZFlatButton.h */,
-				AE05A3B0178E5228002C0D84 /* EPPZFlatButton.m */,
+				FA36A10E1B1158290099ADC2 /* eppz!secondary.entitlements */,
+				FA36A0EE1B1157740099ADC2 /* AppDelegate.h */,
+				FA36A0EF1B1157750099ADC2 /* AppDelegate.m */,
+				FA36A0F11B1157750099ADC2 /* ViewController.h */,
+				FA36A0F21B1157750099ADC2 /* ViewController.m */,
+				FA36A0F41B1157750099ADC2 /* Main.storyboard */,
+				FA36A0F71B1157750099ADC2 /* Images.xcassets */,
+				FA36A0F91B1157750099ADC2 /* LaunchScreen.xib */,
+				FA36A0EA1B1157740099ADC2 /* Supporting Files */,
 			);
-			name = "Flat button";
+			path = "eppz!secondary";
+			sourceTree = "<group>";
+		};
+		FA36A0EA1B1157740099ADC2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA36A0EB1B1157740099ADC2 /* Info.plist */,
+				FA36A0EC1B1157740099ADC2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA36A1031B1157760099ADC2 /* eppz!secondaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA36A1061B1157760099ADC2 /* eppz_secondaryTests.m */,
+				FA36A1041B1157760099ADC2 /* Supporting Files */,
+			);
+			path = "eppz!secondaryTests";
+			sourceTree = "<group>";
+		};
+		FA36A1041B1157760099ADC2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA36A1051B1157760099ADC2 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +287,41 @@
 			productReference = AE05A366178E1122002C0D84 /* eppz!settings.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FA36A0E71B1157740099ADC2 /* eppz!secondary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA36A1081B1157760099ADC2 /* Build configuration list for PBXNativeTarget "eppz!secondary" */;
+			buildPhases = (
+				FA36A0E41B1157740099ADC2 /* Sources */,
+				FA36A0E51B1157740099ADC2 /* Frameworks */,
+				FA36A0E61B1157740099ADC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "eppz!secondary";
+			productName = "eppz!secondary";
+			productReference = FA36A0E81B1157740099ADC2 /* eppz!secondary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA36A0FF1B1157750099ADC2 /* eppz!secondaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA36A10B1B1157760099ADC2 /* Build configuration list for PBXNativeTarget "eppz!secondaryTests" */;
+			buildPhases = (
+				FA36A0FC1B1157750099ADC2 /* Sources */,
+				FA36A0FD1B1157750099ADC2 /* Frameworks */,
+				FA36A0FE1B1157750099ADC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA36A1021B1157750099ADC2 /* PBXTargetDependency */,
+			);
+			name = "eppz!secondaryTests";
+			productName = "eppz!secondaryTests";
+			productReference = FA36A1001B1157750099ADC2 /* eppz!secondaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,6 +331,29 @@
 				CLASSPREFIX = EPPZ;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "eppz!";
+				TargetAttributes = {
+					AE05A365178E1122002C0D84 = {
+						DevelopmentTeam = H39MZXMTWJ;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					FA36A0E71B1157740099ADC2 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = H39MZXMTWJ;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					FA36A0FF1B1157750099ADC2 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = FA36A0E71B1157740099ADC2;
+					};
+				};
 			};
 			buildConfigurationList = AE05A361178E1122002C0D84 /* Build configuration list for PBXProject "eppz!settings" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -234,6 +361,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = AE05A35D178E1122002C0D84;
 			productRefGroup = AE05A367178E1122002C0D84 /* Products */;
@@ -241,6 +369,8 @@
 			projectRoot = "";
 			targets = (
 				AE05A365178E1122002C0D84 /* eppz!settings */,
+				FA36A0E71B1157740099ADC2 /* eppz!secondary */,
+				FA36A0FF1B1157750099ADC2 /* eppz!secondaryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +394,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA36A0E61B1157740099ADC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA36A0F61B1157750099ADC2 /* Main.storyboard in Resources */,
+				FA36A0FB1B1157750099ADC2 /* LaunchScreen.xib in Resources */,
+				FA36A0F81B1157750099ADC2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA36A0FE1B1157750099ADC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -274,15 +421,39 @@
 				AE05A376178E1122002C0D84 /* main.m in Sources */,
 				AE05A37A178E1122002C0D84 /* EPPZAppDelegate.m in Sources */,
 				AE05A383178E1122002C0D84 /* EPPZViewController.m in Sources */,
-				AE05A391178E113C002C0D84 /* EPPZUserDefaults.m in Sources */,
+				AE05A391178E113C002C0D84 /* EPPZUserSettings.m in Sources */,
 				AE05A396178E11AB002C0D84 /* EPPZSettings.m in Sources */,
-				AE05A399178E12C4002C0D84 /* EPPZTapCounts.m in Sources */,
 				AE05A3A2178E224A002C0D84 /* NSObject+EPPZKeyMap.m in Sources */,
-				AE05A3B1178E5228002C0D84 /* EPPZFlatButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA36A0E41B1157740099ADC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA36A0F31B1157750099ADC2 /* ViewController.m in Sources */,
+				FA36A0F01B1157750099ADC2 /* AppDelegate.m in Sources */,
+				FA36A0ED1B1157740099ADC2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA36A0FC1B1157750099ADC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA36A1071B1157760099ADC2 /* eppz_secondaryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA36A1021B1157750099ADC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA36A0E71B1157740099ADC2 /* eppz!secondary */;
+			targetProxy = FA36A1011B1157750099ADC2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AE05A372178E1122002C0D84 /* InfoPlist.strings */ = {
@@ -299,6 +470,22 @@
 				AE05A385178E1122002C0D84 /* en */,
 			);
 			name = EPPZViewController.xib;
+			sourceTree = "<group>";
+		};
+		FA36A0F41B1157750099ADC2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA36A0F51B1157750099ADC2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA36A0F91B1157750099ADC2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA36A0FA1B1157750099ADC2 /* Base */,
+			);
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -365,10 +552,14 @@
 		AE05A38D178E1122002C0D84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "eppz!settings/eppz!settings.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "eppz!settings/eppz!settings-Prefix.pch";
 				INFOPLIST_FILE = "eppz!settings/eppz!settings-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -376,11 +567,139 @@
 		AE05A38E178E1122002C0D84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "eppz!settings/eppz!settings.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "eppz!settings/eppz!settings-Prefix.pch";
 				INFOPLIST_FILE = "eppz!settings/eppz!settings-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FA36A1091B1157760099ADC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "eppz!secondary/eppz!secondary.entitlements";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "eppz!secondary/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FA36A10A1B1157760099ADC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "eppz!secondary/eppz!secondary.entitlements";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "eppz!secondary/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FA36A10C1B1157760099ADC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "eppz!secondaryTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eppz!secondary.app/eppz!secondary";
+			};
+			name = Debug;
+		};
+		FA36A10D1B1157760099ADC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "eppz!secondaryTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eppz!secondary.app/eppz!secondary";
 			};
 			name = Release;
 		};
@@ -401,6 +720,24 @@
 			buildConfigurations = (
 				AE05A38D178E1122002C0D84 /* Debug */,
 				AE05A38E178E1122002C0D84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA36A1081B1157760099ADC2 /* Build configuration list for PBXNativeTarget "eppz!secondary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA36A1091B1157760099ADC2 /* Debug */,
+				FA36A10A1B1157760099ADC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA36A10B1B1157760099ADC2 /* Build configuration list for PBXNativeTarget "eppz!secondaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA36A10C1B1157760099ADC2 /* Debug */,
+				FA36A10D1B1157760099ADC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

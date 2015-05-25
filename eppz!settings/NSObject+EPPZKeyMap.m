@@ -44,7 +44,7 @@
     
     if (value != nil)
     {
-        //Some type conversion (NSString to NSNumber integer yet).
+        // Some type conversion (NSString to NSNumber integer yet).
         if ([targetValue isKindOfClass:[NSNumber class]] &&
             [value isKindOfClass:[NSString class]])
              value = @([value integerValue]);
@@ -52,7 +52,7 @@
             [value isKindOfClass:[NSNumber class]])
             value = [value stringValue];
         
-        //Set safely.
+        // Set safely.
         @try {[ self setValue:value forKeyPath:targetKeyPath]; }
         @catch (NSException *exception) { }
         @finally { }

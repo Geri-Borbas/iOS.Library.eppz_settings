@@ -12,22 +12,19 @@
 
 #import <UIKit/UIKit.h>
 #import "EPPZSettings.h"
-#import "EPPZTapCounts.h"
 #import "NSObject+EPPZKeyMap.h"
 
 
 @interface EPPZViewController : UIViewController
 
-    <UITextFieldDelegate>
+    <UITextFieldDelegate,
+     EPPZUserSettingsDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *nameTextField;
 @property (nonatomic, weak) IBOutlet UISwitch *soundSwitch;
 @property (nonatomic, weak) IBOutlet UISlider *volumeSlider;
-@property (nonatomic, weak) IBOutlet UISwitch *messagesSwitch;
-@property (nonatomic, weak) IBOutlet UISwitch *iCloudSwitch;
-@property (nonatomic, weak) IBOutlet UITextField *lifeTimeTapCountTextField;
-@property (nonatomic, weak) IBOutlet UITextField *tapCountTextField;
+@property (nonatomic, weak) IBOutlet UISwitch *unlockedSwitch;
+@property (nonatomic, weak) IBOutlet UILabel *syncedLabel;
 -(IBAction)anyControlChanged:(id) sender;
--(IBAction)tap;
 
 @end

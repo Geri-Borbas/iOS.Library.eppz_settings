@@ -18,11 +18,13 @@
 
 
 -(BOOL)application:(UIApplication*) application didFinishLaunchingWithOptions:(NSDictionary*) launchOptions
-{
+{   
+    // Main window.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIViewController *viewController = [[EPPZViewController alloc] initWithNibName:@"EPPZViewController" bundle:nil];
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

@@ -14,7 +14,6 @@
 
 @interface EPPZViewController ()
 @property (nonatomic, strong) EPPZSettings *settings;
-@property (nonatomic, strong) EPPZTapCounts *tapCounts;
 @property (nonatomic, readonly) NSDictionary *modelToUIKeyMap;
 @end
 
@@ -27,15 +26,13 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.settings = [EPPZSettings new];
-    self.tapCounts = [EPPZTapCounts new];
-    
+    self.settings = [EPPZSettings settingsWithMode:EPPZUserSettingsModeiCloud
+                                          delegate:self];
     [self populateUI];
 }
 
 
-#pragma mark - Interactions (Settings)
+#pragma mark - Interactions
 
 -(IBAction)anyControlChanged:(id) sender
 { [self populateModel]; }
@@ -44,16 +41,16 @@
 { [textField resignFirstResponder]; return YES; }
 
 
-#pragma mark - Interactions (Tap counts)
+#pragma mark - iCloud
 
--(IBAction)tap
+-(void)settingsDidChangeRemotely:(EPPZSettings*) settings
 {
-    //Manipulate model.
-    self.tapCounts.lifeTimeTapCount++;
-    self.tapCounts.tapCount++;
-    
+    NSLog(@"EPPZViewController.settingsDidChangeRemotely");
     [self populateUI];
 }
+
+-(void)settingsSyncDidFail:(EPPZSettings*) settings
+{ /* May indicate some "Not synced" message */ }
 
 
 #pragma mark - Map model to UI
@@ -64,18 +61,21 @@
              @"settings.name" : @"nameTextField.text",
              @"settings.sound" : @"soundSwitch.on",
              @"settings.volume" : @"volumeSlider.value",
-             @"settings.messages" : @"messagesSwitch.on",
-             @"settings.iCloud" : @"iCloudSwitch.on",
-             @"tapCounts.lifeTimeTapCount" : @"lifeTimeTapCountTextField.text",
-             @"tapCounts.tapCount" : @"tapCountTextField.text"
+             @"settings.unlocked" : @"unlockedSwitch.on",
              };
 }
 
 -(void)populateUI
-{ [self applyKeyMap:self.modelToUIKeyMap]; }
+{
+    [self applyKeyMap:self.modelToUIKeyMap];
+    self.syncedLabel.text = (self.settings.isSyncingEnabled) ? @"synced" : @"not synced, enable app in device iCloud settings";
+}
 
 -(void)populateModel
-{ [self applyKeyMapToLeft:self.modelToUIKeyMap]; }
+{
+    NSLog(@"populateModel");
+    [self applyKeyMapToLeft:self.modelToUIKeyMap];
+}
 
 
 @end

@@ -2,13 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>name</key>
-	<string>eppz!</string>
-	<key>sound</key>
+	<key>HasAskedToTakeAutomaticSnapshotBeforeSignificantChanges</key>
 	<true/>
-	<key>volume</key>
-	<real>0.5</real>
-	<key>unlocked</key>
-	<false/>
+	<key>SnapshotAutomaticallyBeforeSignificantChanges</key>
+	<true/>
 </dict>
 </plist>

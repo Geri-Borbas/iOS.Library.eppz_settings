@@ -14,4 +14,26 @@
 
 
 @implementation EPPZSettings
+
+
++(NSArray*)persistablePropertyNames
+{
+    return @[
+             @"name",
+             @"sound",
+             @"volume",
+             @"unlocked"
+             ];
+}
+
+-(BOOL)shouldMergeRemoteValue:(id) value forKey:(NSString*) key
+{
+    if ([key isEqualToString:@"unlocked"] &&
+        [value boolValue] == NO)
+    { return NO; }
+    
+    return YES;
+}
+
+
 @end
