@@ -12,7 +12,6 @@
 
 #import <UIKit/UIKit.h>
 #import "EPPZSettings.h"
-#import "NSObject+EPPZKeyMap.h"
 
 
 @interface EPPZViewController : UIViewController

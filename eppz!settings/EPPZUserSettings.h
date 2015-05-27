@@ -14,9 +14,15 @@
 #import <objc/runtime.h>
 
 
-#define EPPZ_USER_SETTINGS_LOGGING YES
+#define EPPZ_USER_SETTINGS_LOGGING NO
 #define USLog if (EPPZ_USER_SETTINGS_LOGGING) NSLog
 
+
+typedef enum
+{
+    EPPZUserSettingsModeUserDefaults,
+    EPPZUserSettingsModeiCloud
+} EPPZUserSettingsMode;
 
 
 @class EPPZUserSettings;
@@ -43,30 +49,53 @@
 @end
 
 
-typedef enum
-{
-    EPPZUserSettingsModeUserDefaults,
-    EPPZUserSettingsModeiCloud
-} EPPZUserSettingsMode;
-
-
 /*!
  
  Handy class to encapsulate saving / archiving of object properties, typical
  use case is to handle user settings. Gets stored to @p NSUserDefaults also
  gets synced to iCloud key-value store.
  
+ Enable iCloud Key-Value store, and iCloud Documents in application capabilities.
+ 
+ May define default values by include a @p <key>.plist in the bundle with the default
+ values for each property. See more at https://github.com/eppz/iOS.Library.eppz_settings
+ 
  */
 @interface EPPZUserSettings : NSObject
 
-+(NSArray*)persistablePropertyNames; // Subclass template [Optional]
+/*!
+ 
+ Subclasses can customize the key name under the object gets stored.
+ Default implementation is @p NSStringFromClass(self)
+ 
+ */
++(NSString*)key;
+
+/*!
+ 
+ Subclasses can override which properties to store / restore / observe.
+ Just return the observable property names in an @p NSString array.
+ Default value returns every public property.
+ 
+ */
++(NSArray*)persistablePropertyNames;
+
+/*!
+ 
+ Called every time the settings object gets populated from a stored state.
+ Subclasses can override if a new (possibly remote) value should be set on the
+ settings object. If this method returns NO, the object gets saved again with the
+ new (possibly overridden) values. Default value is @p YES.
+
+ */
 -(BOOL)shouldMergeRemoteValue:(id) value forKey:(NSString*) key; // Subclass template [Optional]
 
 /*!
  
  Designated factory method.
  
- @param delegate Delegate to call back with iCloud results.
+ @param mode Storing method to use (either @p EPPZUserSettingsModeUserDefaults or @p EPPZUserSettingsModeiCloud)
+ @param delegate Delegate to call back with iCloud results if any.
  
  */
 +(instancetype)settingsWithMode:(EPPZUserSettingsMode) mode
@@ -75,6 +104,7 @@ typedef enum
 /*!
  
  Returns true when iCloud Drive is enabled for the given app in device settings.
+ May indicate to the user that the values don't get synced if this returns @p NO.
  
  */
 @property (nonatomic, readonly) BOOL isSyncingEnabled;

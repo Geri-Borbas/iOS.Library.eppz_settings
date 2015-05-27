@@ -12,9 +12,9 @@
 
 #import "EPPZViewController.h"
 
+
 @interface EPPZViewController ()
 @property (nonatomic, strong) EPPZSettings *settings;
-@property (nonatomic, readonly) NSDictionary *modelToUIKeyMap;
 @end
 
 
@@ -45,7 +45,7 @@
 
 -(void)settingsDidChangeRemotely:(EPPZSettings*) settings
 {
-    NSLog(@"EPPZViewController.settingsDidChangeRemotely");
+    NSLog(@"%@.settingsDidChangeRemotely:", NSStringFromClass(self.class));
     [self populateUI];
 }
 
@@ -55,26 +55,25 @@
 
 #pragma mark - Map model to UI
 
--(NSDictionary*)modelToUIKeyMap
-{
-    return @{
-             @"settings.name" : @"nameTextField.text",
-             @"settings.sound" : @"soundSwitch.on",
-             @"settings.volume" : @"volumeSlider.value",
-             @"settings.unlocked" : @"unlockedSwitch.on",
-             };
-}
-
 -(void)populateUI
 {
-    [self applyKeyMap:self.modelToUIKeyMap];
+    NSLog(@"%@.populateUI", NSStringFromClass(self.class));
+
+    self.nameTextField.text = self.settings.name;
+    [self.soundSwitch setOn:self.settings.sound animated:YES];
+    [self.volumeSlider setValue:self.settings.volume animated:YES];
+    [self.unlockedSwitch setOn:self.settings.unlocked animated:YES];
     self.syncedLabel.text = (self.settings.isSyncingEnabled) ? @"synced" : @"not synced, enable app in device iCloud settings";
 }
 
 -(void)populateModel
 {
-    NSLog(@"populateModel");
-    [self applyKeyMapToLeft:self.modelToUIKeyMap];
+    NSLog(@"%@.populateModel", NSStringFromClass(self.class));
+    
+    self.settings.name = self.nameTextField.text;
+    self.settings.sound = self.soundSwitch.isOn;
+    self.settings.volume = self.volumeSlider.value;
+    self.settings.unlocked = self.unlockedSwitch.isOn;
 }
 
 

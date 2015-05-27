@@ -13,12 +13,15 @@
 #import "EPPZUserSettings.h"
 
 
+#define NULL_VALUE @"<null>"
+
+
 @interface EPPZUserSettings ()
 
 @property (nonatomic, weak) NSUserDefaults *userDefaults;
 @property (nonatomic, weak) NSUbiquitousKeyValueStore *keyValueStore;
 @property (nonatomic) EPPZUserSettingsMode mode;
-@property (nonatomic) BOOL _isSyncingEnabled;
+@property (nonatomic, strong) NSDictionary *defaults;
 
 @property (nonatomic, strong, readonly) NSArray *propertyNames;
 @property (nonatomic, strong) NSMutableDictionary *dictionaryRepresentation;
@@ -46,36 +49,40 @@
                    delegate:(id<EPPZUserSettingsDelegate>) delegate
 {
     if (self = [super init])
-    {        
-        // Shortcuts.
-        self.userDefaults = [NSUserDefaults standardUserDefaults];
-        self.keyValueStore = [NSUbiquitousKeyValueStore defaultStore];
+    {
+        // Properties.
         self.iCloud = (mode == EPPZUserSettingsModeiCloud);
         self.delegate = delegate;
         
-        [self createDictionaryRepresentation];
+        // Shortcuts.
+        self.userDefaults = [NSUserDefaults standardUserDefaults];
+        self.keyValueStore = [NSUbiquitousKeyValueStore defaultStore];
+        
+        // Create dictionarial representation in memory.
+        [self allocateDictionaryRepresentation];
         
         NSDictionary *storedDictionaryRepresentation;
         if (self.iCloud)
         {
-            [self checkAccount];
             [self observeKeyValueStore];
-            BOOL synced = [self.keyValueStore synchronize]; // Kick off sync (if any remote change)
-            USLog(@"synced: %@", (synced) ? @"YES" : @"NO");
+            [self.keyValueStore synchronize]; // Kick off iCloud sync (changes get called back on `keyValueStoreDidChange:`)
             
             // Representation.
-            storedDictionaryRepresentation = [self.keyValueStore objectForKey:self.className];
+            storedDictionaryRepresentation = [self.keyValueStore objectForKey:self.key];
+            if (storedDictionaryRepresentation == nil)
+            {
+                // Get populated from defaults if no stored state.
+                storedDictionaryRepresentation = self.defaults;
+            }
         }
         else
         {
             // Register defaults.
-            NSString *defaultsPlistPath = [[NSBundle mainBundle] pathForResource:self.className ofType:@"plist"];
-            NSDictionary *defaultProperties = [NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath];
-            NSDictionary *defaults = (defaultProperties != nil) ? @{ self.className : defaultProperties } : nil;
+            NSDictionary *defaults = (self.defaults != nil) ? @{ self.key : self.defaults } : nil;
             [self.userDefaults registerDefaults:defaults];
             
             // Representation.
-            storedDictionaryRepresentation = [self.userDefaults objectForKey:self.className];
+            storedDictionaryRepresentation = [self.userDefaults objectForKey:self.key];
         }
         
         // Populate.
@@ -92,15 +99,6 @@
     return self;
 }
 
--(void)createDictionaryRepresentation
-{
-    self.dictionaryRepresentation = [NSMutableDictionary new];
-    for (NSString *eachPropertyName in [self.class persistablePropertyNames])
-    { [self.dictionaryRepresentation setObject:[NSNull null] forKey:eachPropertyName]; }
-    
-    USLog(@"createDictionaryRepresentation: %@", self.dictionaryRepresentation);
-}
-
 -(void)dealloc
 {
     // Tear down observers.
@@ -109,76 +107,75 @@
 }
 
 
-#pragma mark - Archiving
+#pragma mark - Dictionary representation
 
-+(NSString*)name { return NSStringFromClass(self); }
--(NSString*)className { return [self.class name]; }
--(NSString*)prefixedKeyForKey:(NSString*) key { return [NSString stringWithFormat:@"%@.%@", self.className, key]; }
++(NSString*)key
+{ return NSStringFromClass(self); }
+
+-(NSString*)key
+{ return self.class.key; }
+
+-(void)allocateDictionaryRepresentation
+{
+    [self changeWithoutObservation:^
+    {
+        self.dictionaryRepresentation = [NSMutableDictionary new];
+        for (NSString *eachPropertyName in [self.class persistablePropertyNames])
+        { [self setDictionaryRepresentationValue:nil forKey:eachPropertyName]; }
+    }];
+}
+
+-(NSDictionary*)defaults
+{
+    if (_defaults == nil)
+    {
+        NSString *defaultsPlistPath = [[NSBundle mainBundle] pathForResource:self.key ofType:@"plist"];
+        _defaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath];
+    }
+    return _defaults;
+}
 
 -(void)populateFromDictionary:(NSDictionary*) dictionaryRepresentation
 {
-    self.suspendPropertyObserving = YES;
-    BOOL somethingHasNotMerged = NO;
-    
+    [self changeWithoutObservation:^
+    {
+        // Check if everything is merged as in dictionary.
+        BOOL changed = NO;
+        
         for (NSString *eachPropertyName in dictionaryRepresentation.allKeys)
         {
-            // Get value (from NSUserDefaults dictionary).
             id value = [dictionaryRepresentation valueForKey:eachPropertyName];
+            if ([value isKindOfClass:[NSString class]] && [(NSString*)value isEqualToString:NULL_VALUE])
+            { value = nil; } // Reconstruct `nil` values
             
-            // Set property safely.
-            @try
+            @try // Safely
             {
-                BOOL shouldSet = [self shouldMergeRemoteValue:value forKey:eachPropertyName];
+                BOOL shouldSet = [self shouldMergeRemoteValue:value forKey:eachPropertyName]; // Ask class if any override
                 if (shouldSet)
                 {
                     [self setValue:value forKey:eachPropertyName]; // Object
-                    [self.dictionaryRepresentation setValue:value forKey:eachPropertyName]; // Dictionary
+                    [self setDictionaryRepresentationValue:value forKey:eachPropertyName]; // Dictionary
                 }
                 else
                 {
-                    somethingHasNotMerged = YES;
+                    changed = YES;
                 }
             }
             @catch (NSException *exception) { }
             @finally { }
         }
-    
-    self.suspendPropertyObserving = NO;
-    
-    // Save "merged" result.
-    if (somethingHasNotMerged) [self save];
+        
+        // Save "merged" result if any change.
+        if (changed) [self synchronize];
+    }];
 }
 
 -(BOOL)shouldMergeRemoteValue:(id) value forKey:(NSString*) key
 { return YES; }
 
--(void)observeValueForKeyPath:(NSString*) keyPath
-                     ofObject:(id)object
-                       change:(NSDictionary*) change
-                      context:(void*) context
-{
-    if (self.suspendPropertyObserving) return; // May be skipped while populating values in this class
-    
-    // New value.
-    id value = [change objectForKey:NSKeyValueChangeNewKey];
-    
-    // Update dictionary representation.
-    [self.dictionaryRepresentation setValue:value forKey:keyPath];
-
-    USLog(@"About to save: %@", self.dictionaryRepresentation);
-    // Set on store.
-    if (self.iCloud)
-    { [self.keyValueStore setObject:self.dictionaryRepresentation forKey:self.className]; }
-    else
-    { [self.userDefaults setObject:self.dictionaryRepresentation forKey:self.className]; }
-    
-    // Set local.
-    if (self.saveOnEveryChange)
-    { [self save]; }
-}
 
 
-#pragma mark - Observe propery changes
+#pragma mark - Key-Value observing
 
 -(void)observePersistableProperties
 {
@@ -192,16 +189,45 @@
         [self removeObserver:self forKeyPath:eachPropertyName];
 }
 
+-(void)changeWithoutObservation:(void(^)()) block
+{
+    self.suspendPropertyObserving = YES;
+    block();
+    self.suspendPropertyObserving = NO;
+}
+
+-(void)observeValueForKeyPath:(NSString*) keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary*) change
+                      context:(void*) context
+{
+    if (self.suspendPropertyObserving) return; // May be skipped (while populating values in this class)
+    
+    // Update dictionary representation.
+    id value = [change objectForKey:NSKeyValueChangeNewKey]; // New value
+    [self setDictionaryRepresentationValue:value forKey:keyPath];
+    
+    // Set on store.
+    if (self.iCloud) { [self.keyValueStore setObject:self.dictionaryRepresentation forKey:self.key]; }
+                else { [self.userDefaults setObject:self.dictionaryRepresentation forKey:self.key]; }
+    
+    // Set local.
+    if (self.saveOnEveryChange) { [self synchronize]; }
+}
+
+-(void)setDictionaryRepresentationValue:(id) value forKey:(NSString*) key
+{
+    if (value == [NSNull null] || value == nil) // Don't set `CFNull` as value
+    { [self.dictionaryRepresentation setValue:NULL_VALUE forKey:key]; /* Custom string for `nil` */ }
+    else
+    { [self.dictionaryRepresentation setValue:value forKey:key]; }
+}
+
 
 #pragma mark - Observe iCloud
 
 -(void)observeKeyValueStore
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyValueStoreAvailibilityDidChange:)
-                                                 name:NSUbiquityIdentityDidChangeNotification
-                                               object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyValueStoreDidChange:)
                                                  name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
@@ -232,96 +258,69 @@
 
 #pragma mark - Application state dependent saving / loading
 
--(void)save
+-(void)synchronize
 {
-    if (self.iCloud)
-    { [self.keyValueStore synchronize]; }
-    else
-    { [self.userDefaults synchronize]; }
-    
-    [self checkAccount];
+    if (self.iCloud) { [self.keyValueStore synchronize]; }
+                else { [self.userDefaults synchronize]; }
 }
 
 -(void)applicationWillResignActive
-{ [self save]; }
+{ [self synchronize]; }
 
 -(void)applicationDidEnterBackground
-{ [self save]; }
+{ [self synchronize]; }
 
 -(void)applicationDidBecomeActive
-{ [self.keyValueStore synchronize]; }
-
--(void)keyValueStoreAvailibilityDidChange:(NSNotification*) notification
-{
-    NSLog(@"keyValueStoreAvailibilityDidChange: (%@)", notification.userInfo);
-}
+{ [self.keyValueStore synchronize]; /* Kick off iCloud sync */ }
 
 -(BOOL)isSyncingEnabled
-{ return self._isSyncingEnabled; }
-
--(void)checkAccount
 {
+    // Look up if there is a local container for iCloud Documents.
     NSURL *containerURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    id token = [[NSFileManager defaultManager] ubiquityIdentityToken];
-    NSLog(@"containerURL: %@", containerURL);
-    NSLog(@"token: %@", token);  // <43b26e49 f45b084a 7d8117ab 7971eae3 d8a30f83>
-    
-    self._isSyncingEnabled = (containerURL != nil);
-    /*
-     NSData *storedTokenData = [[NSUserDefaults standardUserDefaults] objectForKey:@"com.eppz.settings.UbiquityIdentityToken"];
-     id storedToken = [NSKeyedUnarchiver unarchiveObjectWithData:storedTokenData];
-     BOOL tokenIsTheSame = [token isEqual:storedToken];
-     NSLog(@"tokenIsTheSame: (%@)", (tokenIsTheSame) ? @"YES" : @"NO");
-     // Can prompt something if nil.
-     */
+    return (containerURL != nil);
 }
 
 -(void)keyValueStoreDidChange:(NSNotification*) notification
 {
-    NSLog(@"keyValueStoreDidChange: (%@)", notification.userInfo);
-    
-    // Change.
+    // Change type.
     NSNumber *reason = [[notification userInfo] objectForKey:NSUbiquitousKeyValueStoreChangeReasonKey];
-    NSArray *changedkeys = [[notification userInfo] objectForKey:NSUbiquitousKeyValueStoreChangedKeysKey];
+    BOOL isChange = (reason.integerValue == NSUbiquitousKeyValueStoreServerChange ||
+                     reason.integerValue == NSUbiquitousKeyValueStoreInitialSyncChange ||
+                     reason.integerValue == NSUbiquitousKeyValueStoreAccountChange);
+    BOOL isSaveError = (reason.integerValue == NSUbiquitousKeyValueStoreQuotaViolationChange);
+    
+    USLog(@"keyValueStoreDidChange: %@", [self changeReasonDecription:reason]);
+    
+    if (isChange)
+    {
+        NSDictionary *remoteDictionaryRepresentation = [self.keyValueStore objectForKey:self.key];
+        [self populateFromDictionary:remoteDictionaryRepresentation];
+        if (self.delegate != nil) [self.delegate settingsDidChangeRemotely:self]; // Callback
+    }
+    
+    if (isSaveError)
+    {
+        if (self.delegate != nil) [self.delegate settingsSyncDidFail:self]; // Callback
+    }
+}
+
+-(NSString*)changeReasonDecription:(NSNumber*) reason
+{
     NSDictionary *reasonDescriptions = @{
                                          @(NSUbiquitousKeyValueStoreServerChange) : @"Server change",
                                          @(NSUbiquitousKeyValueStoreInitialSyncChange) : @"Initial sync change",
                                          @(NSUbiquitousKeyValueStoreQuotaViolationChange) : @"Quota Violation change",
                                          @(NSUbiquitousKeyValueStoreAccountChange) : @"Account change"
                                          };
-    
-    BOOL isChange = (reason.integerValue == NSUbiquitousKeyValueStoreServerChange ||
-                     reason.integerValue == NSUbiquitousKeyValueStoreInitialSyncChange ||
-                     reason.integerValue == NSUbiquitousKeyValueStoreAccountChange);
-    BOOL isSaveError = (reason.integerValue == NSUbiquitousKeyValueStoreQuotaViolationChange);
-    
-    NSLog(@"keyValueStoreDidChange: %@", reasonDescriptions[reason]);
-    
-    [self checkAccount];
-    
-    // Change runtime object.
-    if (isChange)
-    {
-        NSLog(@"changedkeys: %@", changedkeys);
-        NSDictionary *remoteDictionaryRepresentation = [self.keyValueStore objectForKey:self.className];
-        [self populateFromDictionary:remoteDictionaryRepresentation];
-        NSLog(@"storedDictionaryRepresentation: %@", remoteDictionaryRepresentation);
-        
-        // Callback.
-        [self.delegate settingsDidChangeRemotely:self];
-    }
-    
-    if (isSaveError)
-    {
-        // Callback.
-        [self.delegate settingsSyncDidFail:self];
-    }
+    if ([reasonDescriptions.allKeys containsObject:reason] == NO) { return @"Unknown"; }
+    return reasonDescriptions[reason];
 }
 
 
 #pragma mark - Properties to represent
 
-+(NSArray*)persistablePropertyNames { return self.propertyNames; }
++(NSArray*)persistablePropertyNames
+{ return self.propertyNames; }
 
 +(NSArray*)propertyNames
 { return [self propertyNamesOfClass:self]; }
