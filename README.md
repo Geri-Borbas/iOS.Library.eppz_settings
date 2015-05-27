@@ -1,6 +1,6 @@
 ## ![eppz!tools](http://www.eppz.eu/beacons/eppz!.png) eppz!settings
 
-sDrop-in NSUserDefaults settings manager for everyday use, extended with iCloud support.
+Drop-in NSUserDefaults settings manager for everyday use, extended with iCloud support.
 
 <a href="https://twitter.com/intent/user?original_referer=https%3A%2F%2Ftwitter.com%2Fabout%2Fresources%2Fbuttons&region=following&screen_name=_eppz&tw_p=followbutton&variant=2.0"><img src="http://www.eppz.eu/beacons/eppz!_follow.png" align="absmiddle"></a>
 
